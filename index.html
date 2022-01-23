@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye</title>
+    <!--normalize-->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <!-- css  -->
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <!-- favicon  -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <!-- google font  -->
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header>
-        <img src="assets/images/logo.png" class="logo" />
-        <h1>Nos photographes</h1>
+    <header role="banner">
+        <a aria-label="Fisheye Home page" href="./index.html" tabindex="1">
+          <img role="img" src="assets/images/logo.png" class="logo" alt="Logo de Fisheye"/>
+        </a>
+        <h1 tabindex="0">Nos photographes</h1>
     </header>
-    <main id="main">
-        <div class="photographer_section"></div>
+    <main id="main" role="main">
+        <section role="region" class="photographer_section"></section>
     </main>
-    <script src="scripts/factories/Photographer.js"></script>
-    <script src="scripts/pages/index.js"></script>
+
+    <!-- Factories -->
+    <script src="scripts/factories/Photographer.js" defer></script>
+
+    <!-- Pages -->
+    <script src="scripts/pages/index.js" defer></script>
     <script src="scripts/pages/photographer.js"></script>
   </body>
 </html>
