@@ -4,12 +4,14 @@ pour récupérer les données nécessaires (id, tagline, city, etc.) */
 function photographerFactory(data) {
     const { id, name, portrait, city, country, tagline, price, alt } = data;
     const picture = `./assets/photographers/PhotographersID/${portrait}`;
-
+    // console.log(picture);
+    
     function getUserCardDOM() {
-        const article = document.createElement( 'article' );
-        article.classList.add("photographer_card");
-        article.classList.add(id); 
-
+      const article = document.createElement( 'article' );
+      article.classList.add("photographer_card");
+      article.classList.add(id); 
+      // console.log(article);
+      
         const photograph = `
         <a href="./photographer.html?id=${id}" tabindex="0">
           <div class="photographer_img">

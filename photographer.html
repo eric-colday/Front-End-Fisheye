@@ -1,36 +1,54 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Fisheye - photographe </title>
+  <!-- font awesome  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  <!--normalize-->
+  <link rel="stylesheet" href="./css/normalize.css">
+  <!-- css  -->
+  <link href="./css/style.css" rel="stylesheet" type="text/css" />
+  <!-- favicon  -->
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <!-- google font  -->
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <header role="banner">
+    <a href="./index.html" tabindex="1">
+      <img src="./assets/images/logo.png" class="logo" alt="Fisheye Home page" />
+    </a>
+
+  </header>
+  <main id="main" class="main">
+    <section class="photograph_header_section" role="region" aria-label="photographer info">
+
+    </section>
+  </main>
+  <!-- factories  -->
+  <script src="./scripts/factories/profil.js"></script>
+  <script src=""></script>
+  <script src=""></script>
+  <script src=""></script>
+  <script src=""></script>
+  <script src=""></script>
+
+  <!-- pages  -->
+  <script src="./scripts/pages/photographer.js"></script>
+
+  <!-- App -->
+  <script type="module" src="./scripts/App.js"></script>
+
+  <!-- tools  -->
+  <script src=""></script>
+  <script src=""></script>
+  <script src=""></script>
+
+</body>
+
 </html>
