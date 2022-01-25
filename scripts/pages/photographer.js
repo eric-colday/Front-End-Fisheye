@@ -12,6 +12,21 @@ function displayPhotographerData(photograph) {
     });
 }
 
+// display images by photographer
+function displayMediaData(mediasphotographer) {
+    const MediaSection = document.querySelector(".photograph-catalog-cards");
+
+    
+
+    // create mediaSection
+  MediaSection.innerHTML = "";
+  mediasphotographer.forEach((media) => {
+    const MediaModel = MediaPageFactory(media);
+    const MediaDOM = MediaModel.MediaDOM();
+    MediaSection.appendChild(MediaDOM);
+  });
+}
+
 function initPhotographer(){
     // Récupère les datas des photographes
   fetch("./data/photographers.json")
@@ -27,6 +42,7 @@ function initPhotographer(){
     const idURL = IDphotographer.get("id");
 
     const { photographers } = data;
+    const { media } = data;
 
     //filtre photographe avec id
     const Showphotographer = photographers.filter(
@@ -35,6 +51,15 @@ function initPhotographer(){
 
     // show header photographer
     displayPhotographerData(Showphotographer);
+
+     //filtre media avec id
+     const ShowMediaphototgrapher = media.filter(
+        (media) => media.photographerId == idURL
+    );
+
+    // display sort images for photographer
+      // get info sort by button
+    displayMediaData(ShowMediaphototgrapher);
     
   })
 }
