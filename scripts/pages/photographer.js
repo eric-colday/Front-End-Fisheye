@@ -1,5 +1,4 @@
 // header for each photographer
-
 function displayPhotographerData(photograph) {
     const PhotographerSection = document.querySelector(
         ".photograph_header_section"
@@ -12,15 +11,51 @@ function displayPhotographerData(photograph) {
     });
 }
 
+
+// button sort popularity/title/date
+function displaySortImages() {
+  const SortButtonSection = document.querySelector(".select-dropdown");
+  const buttonSort = sortImagesDOM();
+  SortButtonSection.appendChild(buttonSort);
+  console.log(SortButtonSection);
+}
+
 // display images by photographer
-function displayMediaData(mediasphotographer) {
-    const MediaSection = document.querySelector(".photograph-catalog-cards");
+function displayMediaData(mediasphotographer, filterBy) {
+  const MediaSection = document.querySelector(".photograph-catalog-cards");
 
-    
+  let mediasphotographerFiltered = null;
 
-    // create mediaSection
+  //  filter medias by type
+  mediasphotographerFiltered = mediasphotographer.sort((a, b) => {
+    return a.likes - b.likes;
+  });
+
+  if (filterBy === "popularity") {
+    mediasphotographerFiltered = mediasphotographer.sort((a, b) => {
+      return a.likes - b.likes;
+    });
+  }
+  if (filterBy === "title") {
+    mediasphotographerFiltered = mediasphotographer.sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  if (filterBy === "date") {
+    mediasphotographerFiltered.sort((a, b) => {
+      return new Date(b.date) - new Date(a.date);
+    });
+  }
+
+  // create mediaSection
   MediaSection.innerHTML = "";
-  mediasphotographer.forEach((media) => {
+  mediasphotographerFiltered.forEach((media) => {
     const MediaModel = MediaPageFactory(media);
     const MediaDOM = MediaModel.MediaDOM();
     MediaSection.appendChild(MediaDOM);
@@ -57,9 +92,34 @@ function initPhotographer(){
         (media) => media.photographerId == idURL
     );
 
+    //show button sort by
+    displaySortImages();
+
     // display sort images for photographer
       // get info sort by button
-    displayMediaData(ShowMediaphototgrapher);
+    displayMediaData(ShowMediaphototgrapher, "popularity");
+
+    const sortByType = document.getElementById("select_images");
+
+    //change orientation arrow buttom sort by popularity/date/title
+    sortByType.addEventListener("click", () => {
+      const arrowUpDown = document.querySelector(".arrow-down");
+      arrowUpDown.classList.toggle("rotated");
+    });
+
+    sortByType.addEventListener("change", (e) => {
+      if (e.target.value === "popularity") {
+        displayMediaData(ShowMediaphototgrapher, "popularity");
+      }
+      if (e.target.value === "date") {
+        displayMediaData(ShowMediaphototgrapher, "date");
+      }
+      if (e.target.value === "title") {
+        displayMediaData(ShowMediaphototgrapher, "title");
+      }
+      AddClickHeart();
+      lightboxShow();
+    });
     
   })
 }
