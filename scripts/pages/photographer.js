@@ -30,7 +30,7 @@ function displayContactForm(photographerNameCard){
   });
 
   // start fill form photographer
-  // fillForm();
+  fillForm();
 }
 // display images by photographer
 function displayMediaData(mediasphotographer, filterBy) {
@@ -72,6 +72,9 @@ function displayMediaData(mediasphotographer, filterBy) {
     const MediaDOM = MediaModel.MediaDOM();
     MediaSection.appendChild(MediaDOM);
   });
+
+  const modalLightBox = document.querySelector(".lightbox_modal");
+
 }
 
 function initPhotographer(){
@@ -130,7 +133,7 @@ function initPhotographer(){
         displayMediaData(ShowMediaphototgrapher, "title");
       }
       //AddClickHeart();
-      //lightboxShow();
+      lightboxShow();
     });
 
     // display formulaire

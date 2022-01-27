@@ -37,7 +37,7 @@ function contactFormFactory(data) {
             </a> 
         `;
 
-        console.log($wrapper);
+        // console.log($wrapper);
     
         $wrapper.innerHTML = cardForm;
         return $wrapper;
