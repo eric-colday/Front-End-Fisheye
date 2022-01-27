@@ -1,6 +1,3 @@
-#contact_modal {
-    display: none;
-}
 
 .photograph-header {  
     background-color: #FAFAFA;
@@ -235,5 +232,152 @@
     margin-right: 10px;
     margin-left: 10px;
     cursor: pointer;
+}
+
+/* 
+**contact form 
+ */
+
+ #contact_modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 50%;
+    max-width: 670px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 15px 35px;
+    margin: 5% auto;
+    position: relative;
+}
+
+
+/* error messages  */
+
+/* hide error messages  */
+.firstName_error,
+.lastName_error,
+.email_error,
+.your_message_error {
+    display: none;
+}
+
+/* color error message  */
+.error_msn {
+    font-size: 1em;
+    font-weight: bold;
+    color: #000;
+    margin: 5px 0;
+    text-transform: uppercase;
+}
+
+
+.modal .close_form {
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    padding: 2px;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal .close_form img {
+    width: 70%;
+    height: 70%;
+}
+
+.modal .close_form:hover,
+.modal .close_form:focus {
+    background-color: #911C1C;
+}
+
+.modal h2 {
+    font-size: 3em;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.modal h2:last-child {
+    margin-bottom: 10px;
+}
+
+.modal form {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.modal form label {
+    color: #312E2E;
+    font-size: 2em;
+    line-height: 46.87px;
+}
+
+.modal form input,
+.modal textarea {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.8em;
+    padding: 0 10px;
+}
+
+.modal form input {
+    height: 68px;
+}
+
+.modal textarea {
+    height: 170px;
+    padding-top: 10px;
+}
+
+.modal form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: self-start;
+    margin-bottom: 26px;
+}
+
+.modal .contact_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal .contact_button:focus {
+    color: #525252;
+    background-color: #db8876;
+    border: solid 2px #911C1C;
+    background-color: #fafafa;
 }
 

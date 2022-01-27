@@ -17,9 +17,21 @@ function displaySortImages() {
   const SortButtonSection = document.querySelector(".select-dropdown");
   const buttonSort = sortImagesDOM();
   SortButtonSection.appendChild(buttonSort);
-  console.log(SortButtonSection);
 }
 
+// create contact form
+function displayContactForm(photographerNameCard){
+  const cardFormSection = document.getElementById("contact_modal");
+  
+  photographerNameCard.forEach((name) => {
+    const cardFormModel = contactFormFactory(name);
+    const cardFormDOM = cardFormModel.contactFormDOM();
+    cardFormSection.appendChild(cardFormDOM);
+  });
+
+  // start fill form photographer
+  // fillForm();
+}
 // display images by photographer
 function displayMediaData(mediasphotographer, filterBy) {
   const MediaSection = document.querySelector(".photograph-catalog-cards");
@@ -117,11 +129,13 @@ function initPhotographer(){
       if (e.target.value === "title") {
         displayMediaData(ShowMediaphototgrapher, "title");
       }
-      AddClickHeart();
-      lightboxShow();
+      //AddClickHeart();
+      //lightboxShow();
     });
-    
-  })
+
+    // display formulaire
+      displayContactForm(Showphotographer);
+  });
 }
 initPhotographer();
 
