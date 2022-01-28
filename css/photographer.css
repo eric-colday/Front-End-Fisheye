@@ -1,4 +1,19 @@
 
+/* general  */
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: inline;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+
 .photograph-header {  
     background-color: #FAFAFA;
     height: 300px;
@@ -233,6 +248,160 @@
     margin-left: 10px;
     cursor: pointer;
 }
+
+/* 
+*****likes-prices 
+*/
+
+.likes-price {
+    position: fixed;
+    bottom: 0;
+    right: 10%;
+    background-color: #DB8876;
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: 700;
+    z-index: 500;
+}
+
+.likes-price .total_likes {
+    display: flex;
+    align-items: center;
+}
+
+.likes-price .total_likes h3 {
+    margin-right: 10px;
+}
+
+
+/*  
+*****light box modal
+*/
+
+.lightbox_modal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    z-index: 2000;
+}
+
+.lightbox_modal .modal_carousel {
+    width: 65%;
+    height: 90%;
+    background-color: #fafafa;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.lightbox_modal .modal_media {
+    height: 100%;
+    width: 100%;
+}
+
+
+.lightbox_modal .modal_media img,
+.lightbox_modal .modal_media video {
+    width: 80%;
+    height: 87%;
+    display: block;
+    object-fit: contain;
+    margin: 30px auto 10px;
+}
+
+.lightbox_modal h3 {
+    font-size: 1.2em;
+    color: #901C1C;
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.lightbox_modal .controls {
+    position: absolute;
+    font-size: 40px;
+    color: #901C1C;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.lightbox_modal .control_btn {
+    width: 100%;
+}
+
+.lightbox_modal .controls_left {
+    left: 10px;
+    border: 1px solid transparent;
+}
+
+.lightbox_modal .controls_right {
+    right: 10px;
+    border: 1px solid transparent;
+}
+
+.lightbox_modal .controls_right:hover,
+.lightbox_modal .controls_left:hover,
+.lightbox_modal .controls_right:focus,
+.lightbox_modal .controls_left:focus {
+    outline: none;
+    border: 1px solid #901C1C;
+}
+
+.lightbox_modal i {
+    padding: 0 20px;
+}
+
+.lightbox_modal i {
+    padding: 0 20px;
+}
+
+.lightbox_modal .modal_close_btn {
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    font-size: 20px;
+    z-index: 400;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    padding: 2px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox_modal .modal_close_btn:hover,
+.lightbox_modal .modal_close_btn:focus {
+    background-color: #f2bdbd;
+    outline: none;
+    border: 2px solid #901C1C;
+}
+
+.lightbox_modal .modal_close_btn img {
+    color: #901C1C;
+    width: 70%;
+    height: 70%;
+}
+
 
 /* 
 **contact form 

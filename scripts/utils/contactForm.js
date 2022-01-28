@@ -20,6 +20,8 @@ function fillForm() {
       const MainDiv = document.getElementById("main");
       const contactModal = document.getElementById("contact_modal");
       const modalTitle = document.querySelector(".modal-title");
+
+      // console.log(bodyDiv);
   
       contactModal.style.display = "block";
       bodyDiv.classList.add("no-scroll");
