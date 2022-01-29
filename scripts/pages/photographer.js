@@ -1,28 +1,29 @@
 // header for each photographer
 function displayPhotographerData(photograph) {
-    const PhotographerSection = document.querySelector(
-        ".photograph_header_section"
-    );
+  const PhotographerSection = document.querySelector(
+    ".photograph_header_section"
+  );
 
-    photograph.filter((person) => {
-        const PhotographerPageModel = photographerPageFactory(person);
-        const PhotographerDOM = PhotographerPageModel.PhotographerHeaderDOM();
-        PhotographerSection.appendChild(PhotographerDOM);
-    });
+  photograph.filter((person) => {
+    const PhotographerPageModel = photographerPageFactory(person);
+    const PhotographerDOM = PhotographerPageModel.PhotographerHeaderDOM();
+    PhotographerSection.appendChild(PhotographerDOM);
+  });
 }
-
 
 // button sort popularity/title/date
 function displaySortImages() {
   const SortButtonSection = document.querySelector(".select-dropdown");
   const buttonSort = sortImagesDOM();
   SortButtonSection.appendChild(buttonSort);
+
+  // console.log(buttonSort);
 }
 
 // create contact form
-function displayContactForm(photographerNameCard){
+function displayContactForm(photographerNameCard) {
   const cardFormSection = document.getElementById("contact_modal");
-  
+
   photographerNameCard.forEach((name) => {
     const cardFormModel = contactFormFactory(name);
     const cardFormDOM = cardFormModel.contactFormDOM();
@@ -32,6 +33,7 @@ function displayContactForm(photographerNameCard){
   // start fill form photographer
   fillForm();
 }
+
 // display images by photographer
 function displayMediaData(mediasphotographer, filterBy) {
   const MediaSection = document.querySelector(".photograph-catalog-cards");
@@ -72,14 +74,12 @@ function displayMediaData(mediasphotographer, filterBy) {
     const MediaDOM = MediaModel.MediaDOM();
     MediaSection.appendChild(MediaDOM);
   });
-
   const modalLightBox = document.querySelector(".lightbox_modal");
 
   // create LightBoxDOM
   modalLightBox.innerHTML = "";
   const LightBoxDOM = LightDOM();
   modalLightBox.appendChild(LightBoxDOM);
-
 }
 
 function displayTotalLikes(photographerLike) {
@@ -91,84 +91,81 @@ function displayTotalLikes(photographerLike) {
   });
 }
 
-function initPhotographer(){
-    // Récupère les datas des photographes
+function initPhotographer() {
+  // Récupère les datas des photographes
   fetch("./data/photographers.json")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
 
-    //Récupère id photographe du URL
-    const IDphotographer = new URLSearchParams(
+      //Récupère id photographe du URL
+      const IDphotographer = new URLSearchParams(
         document.location.search.substring(1)
-    );
+      );
+      const idURL = IDphotographer.get("id");
 
-    const idURL = IDphotographer.get("id");
+      const { photographers } = data;
+      const { media } = data;
 
-    const { photographers } = data;
-    const { media } = data;
-
-    //filtre photographe avec id
-    const Showphotographer = photographers.filter(
+      //filtre photographe avec id
+      const Showphotographer = photographers.filter(
         (photographer) => photographer.id == idURL
-    );
+      );
 
-    // show header photographer
-    displayPhotographerData(Showphotographer);
+      // show header photographer
+      displayPhotographerData(Showphotographer);
 
-    //filtre media avec id
-     const ShowMediaphototgrapher = media.filter(
+      //show button sort by
+      displaySortImages();
+
+      //filtre media avec id
+      const ShowMediaphototgrapher = media.filter(
         (media) => media.photographerId == idURL
-    );
+      );
 
-    //show button sort by
-    displaySortImages();
-
-    // display sort images for photographer
+      // display sort images for photographer
       // get info sort by button
-    displayMediaData(ShowMediaphototgrapher, "popularity");
-    // controllers lightbox
+      displayMediaData(ShowMediaphototgrapher, "popularity");
+      // controllers lightbox
 
-    // variable accumule likes photographer
-    let totallikes = null;
+      // variable accumule likes photographer
+      let totallikes = null;
 
-    // calcule total de likes par photographe
+      // calcule total de likes par photographe
       ShowMediaphototgrapher.forEach((media) => {
         totallikes = totallikes + media.likes;
-    });
+      });
 
-    //display total likes footer
-    displayTotalLikes(Showphotographer);
-    const totalLikesText = document.querySelector(".likes-footer h3");
-    totalLikesText.innerHTML = totallikes;
-    AddClickHeart();
-    lightboxShow();
-
-    const sortByType = document.getElementById("select_images");
-
-    //change orientation arrow buttom sort by popularity/date/title
-    sortByType.addEventListener("click", () => {
-      const arrowUpDown = document.querySelector(".arrow-down");
-      arrowUpDown.classList.toggle("rotated");
-    });
-
-    sortByType.addEventListener("change", (e) => {
-      if (e.target.value === "popularity") {
-        displayMediaData(ShowMediaphototgrapher, "popularity");
-      }
-      if (e.target.value === "date") {
-        displayMediaData(ShowMediaphototgrapher, "date");
-      }
-      if (e.target.value === "title") {
-        displayMediaData(ShowMediaphototgrapher, "title");
-      }
+      //display total likes footer
+      displayTotalLikes(Showphotographer);
+      const totalLikesText = document.querySelector(".likes-footer h3");
+      totalLikesText.innerHTML = totallikes;
       AddClickHeart();
       lightboxShow();
-    });
+      const sortByType = document.getElementById("select_images");
 
-    // display formulaire
+      //change orientation arrow buttom sort by popularity/date/title
+      sortByType.addEventListener("click", () => {
+        const arrowUpDown = document.querySelector(".arrow-down");
+        arrowUpDown.classList.toggle("rotated");
+      });
+
+      sortByType.addEventListener("change", (e) => {
+        if (e.target.value === "popularity") {
+          displayMediaData(ShowMediaphototgrapher, "popularity");
+        }
+        if (e.target.value === "date") {
+          displayMediaData(ShowMediaphototgrapher, "date");
+        }
+        if (e.target.value === "title") {
+          displayMediaData(ShowMediaphototgrapher, "title");
+        }
+        AddClickHeart();
+        lightboxShow();
+      });
+
+      // display formulaire
       displayContactForm(Showphotographer);
-  });
+    });
 }
 initPhotographer();
-

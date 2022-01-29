@@ -13,7 +13,7 @@ function sortImagesDOM() {
         </select>
       <i class="fas fa-chevron-down arrow-down"></i>
       
-      `;
+    `;
   
     $wrapper.innerHTML = buttonSortImages;
     return $wrapper;

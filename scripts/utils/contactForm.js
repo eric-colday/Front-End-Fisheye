@@ -34,7 +34,7 @@ function fillForm() {
       document.querySelector(".photograph-txt").setAttribute("tabIndex", "-1"); //disable tabindex photogaph city and tagline header
       document.querySelector(".contact_me").setAttribute("tabIndex", "-1"); //disable tabindex contact button header
       document.querySelector(".photograph-img").setAttribute("tabIndex", "-1"); //disable tabindex image photographer header
-      // document.querySelector(".likes-price").setAttribute("tabIndex", "-1"); //disable tabindex footer likes
+      document.querySelector(".likes-price").setAttribute("tabIndex", "-1"); //disable tabindex footer likes
       document.querySelector("#sort").setAttribute("tabIndex", "-1"); //disable tabindex sort by text
       document.querySelector("#select_images").setAttribute("tabIndex", "-1"); //disable tabindex sort button
   
@@ -88,7 +88,7 @@ function fillForm() {
       document.querySelector(".photograph-txt").setAttribute("tabIndex", "2"); //enable tabindex photogaph city and tagline header
       document.querySelector(".contact_me").setAttribute("tabIndex", "2"); //enable tabindex contact button header
       document.querySelector(".photograph-img").setAttribute("tabIndex", "2"); //enable tabindex image photographer header
-      // document.querySelector(".likes-price").setAttribute("tabIndex", "2"); //enable tabindex footer likes
+      document.querySelector(".likes-price").setAttribute("tabIndex", "2"); //enable tabindex footer likes
       document.querySelector("#sort").setAttribute("tabIndex", "0"); //enable tabindex sort by text
       document.querySelector("#select_images").setAttribute("tabIndex", "0"); //enable tabindex sort button
   

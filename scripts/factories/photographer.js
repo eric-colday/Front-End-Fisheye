@@ -10,7 +10,7 @@ function photographerFactory(data) {
       const article = document.createElement( 'article' );
       article.classList.add("photographer_card");
       article.classList.add(id); 
-      // console.log(article);
+      
       
         const photograph = `
         <a href="./photographer.html?id=${id}" tabindex="0">

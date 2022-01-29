@@ -200,7 +200,7 @@
 .photograph-catalog-cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
+    gap: 123px;
     margin-top: 44px;
     width: 100%;
     padding-bottom: 100px;
@@ -262,7 +262,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 15px 0;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-weight: 700;
